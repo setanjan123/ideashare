@@ -28,8 +28,8 @@ if(isset($_SESSION['username']) || !empty($_SESSION['username'])){
 			    	<div class="col-md-6">
 				    	<div class=" login">
 					        <form action="login.php" method="post">
-								<input type="text" placeholder="username" name="user"/><br/>
-								<input type="password" placeholder="password" name="password"/><br/>
+								<input type="text" placeholder="username" name="user" required/><br/>
+								<input type="password" placeholder="password" name="password" required/><br/>
 								<input type="submit" value="Login"/>
 							</form>
 							Don't Have an Account ? <a href="register.html" style="color : white">Register Now</a><br/>
