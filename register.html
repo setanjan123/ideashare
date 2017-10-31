@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ideaShare</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width = device-width, initial-scale = 1">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	<body>
+		<div class="vertical-center">
+			<div class="container">
+				<div class="row">
+			    	<div class="col-md-6">
+				    <h1 style="font-size:500%">IdeaShare</h1>
+			    	</div>
+			    	<div class="col-md-6">
+				    	<div class=" login">
+					        <form action="register.php" method="post" enctype="multipart/form-data">
+								<input type="text" placeholder="username" name="user"/><br/>
+								<input type="password" placeholder="password" name="pass"/><br><br>
+								<input type="text" placeholder="Full Name" name="fname"/><br><br>
+								<input name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" placeholder="E-mail: user@example.gov"/> Please give a real e-mail. We will send a verification link<br><br>
+								 <b>Gender:</b><br>
+								 <input type="radio" name="gender" value="Male"> Male
+                                 <input type="radio" name="gender" value="Female"> Female
+                                 <input type="radio" name="gender" value="other">Other<br><br>
+								 <b>Birthday:</b>
+                                 <input type="date" name="bday"><br><br>
+								 <b>Choose Profile Picture(We will give you a default profile picture if you choose nothing)</b><br>
+								 <input type="file" name="image" accept=".bmp,.jpg,.jpeg,.png"><br><br>
+								<input type="submit" value="Register"/>
+							</form>
+							<br><a href="index.php"><b style="color : white">Go Back</b></a>
+						</div>	
+			  		</div>
+				</div>
+			</div>
+		</div>			
+	</body>
+</html>

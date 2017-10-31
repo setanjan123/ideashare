@@ -1,0 +1,52 @@
+
+
+.search {
+    display: block;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	max-height:300px;
+    overflow:auto;
+}
+
+.search a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+
+
+.notbox {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	max-height:250px;
+   overflow:auto;
+}
+
+.notbox a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.jumbotron
+{
+ max-width: 400px;
+ border-radius: 8px;
+}
+
+
+
+
+
