@@ -16,11 +16,7 @@ if(isset($_SESSION['username']) || !empty($_SESSION['username'])){
 		<meta name="viewport" content="width = device-width, initial-scale = 1">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="styles.css">
-          <script type="text/javascript"> //<![CDATA[ 
-var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
-document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
-//]]>
-</script>
+          
 	</head>
 	<body>
 		<div class="vertical-center">
@@ -42,9 +38,5 @@ document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/tru
 				</div>
 			</div>
 		</div>
-      <script language="JavaScript" type="text/javascript">
-    TrustLogo("https://shareideas.me/comodo.png", "CL1", "none");
-    </script>
-    <a  href="https://ssl.comodo.com" id="comodoTL">Comodo SSL</a>
 	</body>
 </html>
