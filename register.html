@@ -18,21 +18,21 @@
 			    	<div class="col-md-6">
 				    	<div class=" login">
 					        <form action="register.php" method="post" enctype="multipart/form-data">
-								<input type="text" placeholder="username" name="user"/><br/>
-								<input type="password" placeholder="password" name="pass"/><br><br>
-								<input type="text" placeholder="Full Name" name="fname"/><br><br>
-								<input name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" placeholder="E-mail: user@example.gov"/> Please give a real e-mail. We will send a verification link<br><br>
-								 <b>Gender:</b><br>
-								 <input type="radio" name="gender" value="Male"> Male
-                                 <input type="radio" name="gender" value="Female"> Female
-                                 <input type="radio" name="gender" value="other">Other<br><br>
-								 <b>Birthday:</b>
-                                 <input type="date" name="bday"><br><br>
-								 <b>Choose Profile Picture(We will give you a default profile picture if you choose nothing)</b><br>
-								 <input type="file" name="image" accept=".bmp,.jpg,.jpeg,.png"><br><br>
-								<input type="submit" value="Register"/>
-							</form>
-							<br><a href="index.php"><b style="color : white">Go Back</b></a>
+						<input type="text" placeholder="username" name="user" required/><br/>
+						<input type="password" placeholder="password" name="pass" required/><br><br>
+						<input type="text" placeholder="Full Name" name="fname" required/><br><br>
+						<input name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" placeholder="E-mail: user@example.gov" required/> Please give a real e-mail. We will send a verification link<br><br>
+						<b>Gender:</b><br>
+						<input type="radio" name="gender" value="Male" required> Male
+                                                <input type="radio" name="gender" value="Female"> Female
+                                                <input type="radio" name="gender" value="other">Other<br><br>
+					        <b>Birthday:</b>
+                                                     <input type="date" name="bday" required><br><br>
+						<b>Choose Profile Picture(We will give you a default profile picture if you choose nothing)</b><br>
+						<input type="file" name="image" accept=".bmp,.jpg,.jpeg,.png"><br><br>
+						<input type="submit" value="Register"/>
+						</form>
+						<br><a href="index.php"><b style="color : white">Go Back</b></a>
 						</div>	
 			  		</div>
 				</div>
