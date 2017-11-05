@@ -11,7 +11,7 @@ $_SESSION['dp']=$imgpath[0];
 ?>
 <!DOCTYPE html>
 <html>
-<title>Welcome to IdeaShare</title>
+<title>ideaShare</title>
 <head>
 <link rel="stylesheet" href="home.css">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
