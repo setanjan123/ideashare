@@ -2,9 +2,7 @@
 include 'connect.php';
 
 if(empty($_POST['user'])|| empty($_POST['password']))
-	{ echo "The Information you entered is incomplete";
-      header( "refresh:2; url=index.php" ); 
-	}
+echo "The Information you entered is incomplete";
 	
 else
 {
@@ -13,9 +11,8 @@ $pass = $_POST['password'];
 $sql = "SELECT * FROM `users` WHERE username='".$user."' AND password='".$pass."'";
 $result = $conn->query($sql);
 if ($result->num_rows==0)
-{ echo "<h1>Invalid username or password</h1>";
-   header( "refresh:2; url=index.php" ); 
-}
+echo "Invalid username or password";
+
 else
 {
  $sql="SELECT * FROM auth WHERE username='".$user."'";
@@ -23,12 +20,10 @@ else
  if($result->num_rows==0)
  {session_start();
  $_SESSION['username'] = $user;      
- header("location: home.php");
+ echo "1";
  }
  else
-{ echo "<h1>Please verify your e-mail</h1>";
-  header( "refresh:2; url=index.php" ); 
-}
+echo "Please verify your e-mail";
 }
 }
 
