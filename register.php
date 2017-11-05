@@ -1,24 +1,21 @@
 <?php
 include 'connect.php';
 if(empty($_POST['user'])|| empty($_POST['pass'])|| empty($_POST['fname'])|| empty($_POST['email'])|| empty($_POST['gender'])|| empty($_POST['bday']))
-	{ echo "The Information you entered is incomplete";
-      header( "refresh:2; url=register.html" ); 
-	}
+echo "The Information you entered is incomplete";
+	
 else {
 $username=preg_replace('/\s+/', '', $_POST['user']);
 $password=preg_replace('/\s+/', '', $_POST['pass']);
 $query1 = "SELECT username FROM `users` WHERE username='".$username."'";
-$query2 = "SELECT email FROM `users` WHERE email='".$password."'";
+$query2 = "SELECT email FROM `users` WHERE email='".$_POST['email']."'";
 $result1 = $conn->query($query1);
 $result2 = $conn->query($query2);
 if ($result1->num_rows!=0)
-{ echo "<h1>Your username already exists. Kindly change it</h1>";
-   header( "refresh:2; url=register.html" ); 
+{ echo "Your username already exists. Kindly change it";
 }
 else if($result2->num_rows!=0)
 {
-echo "<h1>You seem to already have an account here. Redirecting to login page</h1>";
-   header( "refresh:2; url=index.php" ); 
+echo "The e-mail you provided is already registered here. Please change it";
 }
 else
 {
@@ -26,8 +23,7 @@ else
 {
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check == false) {
-        echo "<h1>File has to be a image</h1>";
-		header( "refresh:2; url=register.html" ); 
+        echo "File has to be a image";
         exit;   
     }
    $myname = strtolower($_FILES['image']['tmp_name']);
@@ -53,8 +49,7 @@ $mailheader .= "Content-Type: text/html; charset=iso-8859-1\n";
 mail($mailto, $mailsubject, $mailmessage, $mailheader);
 $sql="INSERT INTO auth VALUES('".$username."','".$code."')";
 $conn->query($sql);
-echo "<h1>New account created successfully. Please Verify your mail before logging in.</h1>";
-header( "refresh:2; url=index.php" ); 
+echo "1";
 }
 else {
     echo "Error: " . $sql . "<br>" . $conn->error;
