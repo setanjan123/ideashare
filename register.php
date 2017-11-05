@@ -39,9 +39,9 @@ $sql = "INSERT INTO `users` VALUES ('".$username."', '".$password."','".$_POST['
 if ($conn->query($sql) === TRUE) {
 $mailto      = $_POST['email'];
 $code        = mt_rand(1000,9999);
-$mailsubject = "IdeaShare Account Verification";
+$mailsubject = "ideaShare Account Verification";
 $mailmessage = " Please follow <a href='https://shareideas.me/verify.php?u=".$username."&c=".$code."'>this</a> link to activate your account.";
-$mailheader  = "From: IdeaShare <webmaster@shareideas.me>\n";
+$mailheader  = "From: ideaShare <webmaster@shareideas.me>\n";
 $headers .= "X-Mailer: PHP/".phpversion()."\r\n";
 $mailheader .= "X-Priority: 1\n"; // Urgent message!
 $mailheader .= "MIME-Version: 1.0\r\n";

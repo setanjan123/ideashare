@@ -34,7 +34,7 @@ body { padding-top: 70px;
 <span class="icon-bar"></span>
 <span class="icon-bar"></span> 
 </button>
-<a class="navbar-brand" href="home.php">IdeaShare</a>
+<a class="navbar-brand" href="home.php">ideaShare</a>
 </div>
 </ul>
 <div class="collapse navbar-collapse" id="myNavbar">

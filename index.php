@@ -25,7 +25,7 @@ if(isset($_SESSION['username']) || !empty($_SESSION['username'])){
 			<div class="container">
 				<div class="row">
 			    	<div class="col-md-6">
-				    <h1 style="font-size:500%">IdeaShare</h1>
+				    <h1 style="font-size:500%">ideaShare</h1>
 			    	</div>
 			    	<div class="col-md-6">
 				    	<div class=" login">
