@@ -8,7 +8,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 include 'connect.php';
 $pid=$_POST['pid'];
-$sql="SELECT pid,username,post FROM posts WHERE pid='".$pid."'";
+$sql="SELECT pid,username,post,image FROM posts WHERE pid='".$pid."'";
 $response=$conn->query($sql);
 while($row=mysqli_fetch_row($response))
 {
@@ -35,6 +35,8 @@ $res=$conn->query($comment);
  echo "<h3><a href='profile.php?user=".$row[1]."'>".$row[1]."</a></h3>";
  echo "<br>";
  echo $row[2];
+ if($row[3]!=NULL)
+ echo '<br><img src="'.$row[3].'"style="width:50%; max-width:500px;min-width:100px;"><br>';
  echo "<br><br>";
  $flag=0;
  if($likes->num_rows==0)
