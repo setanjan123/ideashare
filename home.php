@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: index.html");
+  header("location: index.php");
   exit;
 }
 include 'connect.php';
@@ -34,7 +34,7 @@ body { padding-top: 70px;
 <span class="icon-bar"></span>
 <span class="icon-bar"></span> 
 </button>
-<a class="navbar-brand" href="home.php">ideaShare</a>
+<a class="navbar-brand" href="home.php">IdeaShare</a>
 </div>
 </ul>
 <div class="collapse navbar-collapse" id="myNavbar">
@@ -55,9 +55,16 @@ body { padding-top: 70px;
 </div></nav>
 <div class="row">
 <div class="col-md-4">
-<p><textarea rows="4" cols="50" id="txtbox" placeholder="Share an Idea!"></textarea></p>
-<button id="post" class="btn btn-success">Post</button><br><br></div>
-</head>
+<form id="post" enctype="multipart/form-data">
+<p><textarea rows="4" cols="50" id="txtbox" name="post" placeholder="Share an Idea!"></textarea></p>
+<label class="myLabel">
+<div class="uploadtext" style="color:white"></div>
+<p><input type="file" name="image" accept=".bmp,.jpg,.jpeg,.png" style="display:none"></p>
+<span class ="btn btn-primary">Add Image</span>
+</label>
+<button  id="postbutton" class="btn btn-success">Post</button><br><br></div>
+</form>
+</head>	
 <body>
 <div class="col-md-4">
 <div class="feed"></div></div>

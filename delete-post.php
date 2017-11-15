@@ -5,7 +5,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   exit;
 }
 $pid=$_POST['pid'];
-$sql="SELECT username FROM posts WHERE pid='".$pid."'";
+$sql="SELECT username,image FROM posts WHERE pid='".$pid."'";
 include "connect.php";
 $temp=mysqli_fetch_row($conn->query($sql));
 if($temp[0]===$_SESSION['username'])
@@ -16,6 +16,8 @@ if($temp[0]===$_SESSION['username'])
  $conn->query($sql1);
  $conn->query($sql2);
  $conn->query($sql3);
+ if($temp[1]!==NULL)
+ unlink($temp[1]);
 }
 else
 echo "You are a smartass arent you ? ";

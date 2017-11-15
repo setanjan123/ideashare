@@ -32,6 +32,8 @@ var request=
        	$.ajax(request);
 }
 
+
+
 function update_notif()
 { 
 var request=
@@ -77,18 +79,22 @@ load_notif();
 update_notif();
 setInterval(update_notif, 30000);
 
-$('#post').click(function() {
+$(document).on("submit","#post",function(e)
+{
 if ($.trim($('#txtbox').val())!="") {
-   var message = $('#txtbox').val();
+   var data= new FormData(this);
    var request=
 	   {
 	     url : "post.php",
 		 type : 'POST',
-		 data: 'post='+message,
+		 data: data,
+		 processData: false,
+         contentType: false,
 		 dataType: "html",
 		 async: false,
-         success: function(msg){
-		 $('#txtbox').val('');
+         success: function(){
+		 $('#post').trigger("reset");
+		 $(".uploadtext").text('');
 	     }
         };
        	$.ajax(request);
@@ -96,11 +102,18 @@ if ($.trim($('#txtbox').val())!="") {
 }
 else
 {
- $(this).notify(
+ $('#postbutton').notify(
   "Post cannot be empty",
   { position:"right" }
 );
 }
+e.preventDefault();
+});
+
+$('input[name="image"]').change(function(){
+    var fileName = $(this).val();
+	var subfileName = fileName.substring(12);
+    $(".uploadtext").text(subfileName);
 });
 });
 
