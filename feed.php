@@ -35,6 +35,7 @@ while($row = mysqli_fetch_row($response))
  echo "<h3><a href='profile.php?user=".$row[1]."'>".$row[1]."</a></h3>";
  echo "<br>";
  echo $row[2];
+ echo "<br>";
  if($row[3]!=NULL)
  echo '<br><img src="'.$row[3].'"style="width:50%; max-width:500px;min-width:100px;"><br>';
  echo "<br><br>";

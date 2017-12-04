@@ -20,7 +20,7 @@ $result=mysqli_fetch_row($result);
 <!DOCTYPE html>
 <html>
 <head>
-<title>Welcome to IdeaShare</title>
+<title><?php echo $_SESSION['username']; ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 </head>
 <style>
@@ -89,7 +89,7 @@ $("#myform2").show();
 <span class="icon-bar"></span>
 <span class="icon-bar"></span> 
 </button>
-<a class="navbar-brand" href="home.php">IdeaShare</a>
+<a class="navbar-brand" href="home.php">ideaShare</a>
 </div>
 </ul>
 <div class="collapse navbar-collapse" id="myNavbar">
