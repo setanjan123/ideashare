@@ -6,6 +6,7 @@ echo "The Information you entered is incomplete";
 else {
 $username=preg_replace('/\s+/', '', $_POST['user']);
 $password=preg_replace('/\s+/', '', $_POST['pass']);
+$hash=password_hash($password, PASSWORD_DEFAULT);
 $query1 = "SELECT username FROM `users` WHERE username='".$username."'";
 $query2 = "SELECT email FROM `users` WHERE email='".$_POST['email']."'";
 $result1 = $conn->query($query1);
@@ -34,14 +35,14 @@ else
 else
 $target="images/default.jpg";
 
-$sql = "INSERT INTO `users` VALUES ('".$username."', '".$password."','".$_POST['fname']."','".$_POST['email']."','".$_POST['gender']."','".$target."','".$_POST['bday']."')";
+$sql = "INSERT INTO `users`(username,password,fullname,email,gen,imgpath,bdate) VALUES ('".$username."', '".$hash."','".$_POST['fname']."','".$_POST['email']."','".$_POST['gender']."','".$target."','".$_POST['bday']."')";
 
 if ($conn->query($sql) === TRUE) {
 $mailto      = $_POST['email'];
 $code        = mt_rand(1000,9999);
-$mailsubject = "ideaShare Account Verification";
+$mailsubject = "IdeaShare Account Verification";
 $mailmessage = " Please follow <a href='https://shareideas.me/verify.php?u=".$username."&c=".$code."'>this</a> link to activate your account.";
-$mailheader  = "From: ideaShare <webmaster@shareideas.me>\n";
+$mailheader  = "From: IdeaShare <webmaster@shareideas.me>\n";
 $headers .= "X-Mailer: PHP/".phpversion()."\r\n";
 $mailheader .= "X-Priority: 1\n"; // Urgent message!
 $mailheader .= "MIME-Version: 1.0\r\n";

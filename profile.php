@@ -2,12 +2,12 @@
 session_start();
 
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: index.html");
+  header("location: index.php");
   exit;
 }
 include 'connect.php';
 $username=$_GET['user'];
-$sql="SELECT fullname,email,gen,bdate,imgpath FROM users WHERE username='".$username."'";
+$sql="SELECT fullname,email,gen,bdate,imgpath,coverpic FROM users WHERE username='".$username."'";
 $result=$conn->query($sql);
 if($result->num_rows==0)
 {echo "<h1>No such user found</h1>";
@@ -27,10 +27,15 @@ $result=mysqli_fetch_row($result);
 body
 {
 padding-top: 70px;
-background-image: url("bg.jpg");
+<?php
+if($result[5]==NULL)
+echo 'background-image: url("bg.jpg");';
+else
+echo 'background-image: url("'.$result[5].'");';
+?>
 }
 
-#myform,#myform2
+#myform,#myform2,#myform3
 {
 display : none;
 }
@@ -74,6 +79,15 @@ else
 $("#myform2").show();
 });
 
+$("#update-cp").click(function()
+{
+var toggle=$('#myform3').is(":visible");
+if(toggle)
+$("#myform3").hide();
+else
+$("#myform3").show();
+});
+
 });
 </script>
   
@@ -114,6 +128,11 @@ $("#myform2").show();
  {
  echo "<br><button id='update-dp' class='btn btn-primary'>Update Profile Picture</button><br><br>";
  echo "<form action='update-dp.php' method='post' id='myform2' enctype='multipart/form-data'>
+       <input type='file' name='image' accept='.bmp,.jpg,.jpeg,.png'><br><br>
+	   <input type='submit' value='Update' class='btn btn-success'></form><br><br>";
+	   
+ echo "<br><button id='update-cp' class='btn btn-primary'>Update Profile Background</button><br><br>";
+ echo "<form action='update-cp.php' method='post' id='myform3' enctype='multipart/form-data'>
        <input type='file' name='image' accept='.bmp,.jpg,.jpeg,.png'><br><br>
 	   <input type='submit' value='Update' class='btn btn-success'></form><br><br>";
  
