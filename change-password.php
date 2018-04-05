@@ -15,16 +15,16 @@ else
 {
 $sql="SELECT password FROM users WHERE username='".$username."'";
 $result=mysqli_fetch_row($conn->query($sql));
-if($result[0]!=$oldpass)
-echo "<h1>Wrong Password. Enter your old password correctly.</h1>";
-else
+if(password_verify($oldpass,$result[0]))
 {
-$sql="UPDATE users SET password='".$newpass."' WHERE username='".$username."'";
+$sql="UPDATE users SET password='".password_hash($newpass, PASSWORD_DEFAULT)."' WHERE username='".$username."'";
 if($conn->query($sql)==TRUE)
 echo "<h1>Changed Password Successfully</h1>";
 else
 echo $conn->error();
 }
+else
+echo "<h1>Wrong Password. Enter your old password correctly.</h1>";
 }
 header( "refresh:2; url='profile.php?user=".$username.""); 
 ?>
